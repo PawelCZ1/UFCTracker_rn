@@ -1,4 +1,5 @@
 import { Text, View } from 'react-native';
+import FighterSearchBar from '../screens/fighter_list/components/FighterSearchBar';
 
 export const EditScreenInfo = ({ path }: { path: string }) => {
   const title = 'Open up the code for this screen:';
@@ -8,6 +9,7 @@ export const EditScreenInfo = ({ path }: { path: string }) => {
   return (
     <View>
       <View className={styles.getStartedContainer}>
+        <FighterSearchBar placeholder="" onPress={() => {}}/>
         <Text className={styles.getStartedText}>{title}</Text>
         <View className={styles.codeHighlightContainer + styles.homeScreenFilename}>
           <Text>{path}</Text>
