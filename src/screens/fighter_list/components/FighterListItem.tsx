@@ -9,22 +9,29 @@ interface Props {
 
 const FighterListItem = ({fighter}: Props) => {
   return (
-    <View className="bg-red-700 rounded-lg flex flex-row justify-center items-center p-4">
-      <Image
-        source={{ uri: fighter.imageUrl }}
-        resizeMode="contain"
-        className="w-20 h-20"
-      />
-      <HorizontalSpacer size={16} />
-      <View className="flex flex-col">
-        <Text>{fighter.firstName} {fighter.lastName}</Text>
-        {fighter.nickname !== "" ? (
-          <Text className="text-white">&quot;{fighter.nickname}&quot;</Text>
-        ) : null}
-        <Text>{fighter.wins}-{fighter.losses}-{fighter.draws}</Text>
+    <View className="bg-red-700 rounded-lg  flex flex-row items-center p-4">
+      <View className="flex-shrink-0">
+        <Image
+          source={{ uri: fighter.imageUrl }}
+          resizeMode="contain"
+          className="w-20 h-20"
+        />
       </View>
       <HorizontalSpacer size={16} />
-      <Feather name={"arrow-right"} size={24} color="#000"/>
+      <View className="flex-1 flex-col">
+        <Text className="text-black" numberOfLines={1} ellipsizeMode="tail">
+          {fighter.firstName} {fighter.lastName}
+        </Text>
+        {fighter.nickname !== "" ? (
+          <Text className="text-white" numberOfLines={1} ellipsizeMode="tail">
+            &quot;{fighter.nickname}&quot;
+          </Text>
+        ) : null}
+        <Text className="text-black">{fighter.wins}-{fighter.losses}-{fighter.draws}</Text>
+      </View>
+      <View className="flex-shrink-0 ml-4">
+        <Feather name={"arrow-right"} size={24} color="#000"/>
+      </View>
     </View>
   );
 };

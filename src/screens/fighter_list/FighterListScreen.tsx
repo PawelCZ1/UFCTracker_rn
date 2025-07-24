@@ -1,22 +1,59 @@
-import { SafeAreaView, View } from 'react-native';
+import { ActivityIndicator, SafeAreaView, View, Text } from 'react-native';
 
 import FighterSearchBar from '~/screens/fighter_list/components/FighterSearchBar';
 import { VerticalSpacer } from '~/components/VerticalSpacer';
 import FighterList from '~/screens/fighter_list/components/FighterList';
+import { useEffect, useState } from 'react';
+import { Fighter } from '~/models/Fighter';
+import { fetchFighters } from '~/services/api';
 
-type ScreenContentProps = {
-  title: string;
-  path: string;
-  children?: React.ReactNode;
-};
+export const FighterListScreen = () => {
 
-export const FighterListScreen = ({ title, path, children }: ScreenContentProps) => {
+  const [fighters, setFighters] = useState<Fighter[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadFighters = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchFighters();
+        setFighters(data);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching fighters:', err);
+        setError('Failed to load fighters');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadFighters();
+  }, []);
+
+  if (loading) {
+    return (
+      <View className="flex-1 justify-center items-center">
+        <ActivityIndicator size="large" color="white" />
+        <Text className="text-white mt-2">Loading fighters...</Text>
+      </View>
+    );
+  }
+
+  if (error) {
+    return (
+      <View className="flex-1 justify-center items-center">
+        <Text className="text-red-500">{error}</Text>
+      </View>
+    );
+  }
+
   return (
     <SafeAreaView className="flex-1 w-full h-full bg-black">
       <View className="flex-1 items-center justify-start  pt-6">
         <FighterSearchBar placeholder="Search" onPress={() => {}}/>
         <VerticalSpacer size={16}/>
-        <FighterList/>
+        <FighterList fighters={fighters} />
       </View>
     </SafeAreaView>
   );

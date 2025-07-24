@@ -6,7 +6,7 @@ import './global.css';
 export default function App() {
   return (
     <>
-      <FighterListScreen title="Fighters" path="App.tsx"></FighterListScreen>
+      <FighterListScreen/>
       <StatusBar style="auto" />
     </>
   );
