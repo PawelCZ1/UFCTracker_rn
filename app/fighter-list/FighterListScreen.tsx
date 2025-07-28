@@ -1,8 +1,8 @@
 import { ActivityIndicator, SafeAreaView, View, Text } from 'react-native';
 
-import FighterSearchBar from '~/screens/fighter_list/components/FighterSearchBar';
+import FighterSearchBar from './components/FighterSearchBar';
 import { VerticalSpacer } from '~/components/VerticalSpacer';
-import FighterList from '~/screens/fighter_list/components/FighterList';
+import FighterList from './components/FighterList';
 import { useEffect, useState } from 'react';
 import { Fighter } from '~/models/Fighter';
 import { fetchFighters } from '~/services/api';

@@ -1,4 +1,4 @@
-import { FighterListScreen } from '~/screens/fighter_list/FighterListScreen';
+import { FighterListScreen } from './app/fighter-list/FighterListScreen';
 import { StatusBar } from 'expo-status-bar';
 
 import './global.css';
