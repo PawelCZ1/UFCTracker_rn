@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import FighterSearchBar from '../../app/fighter-list/components/FighterSearchBar';
+import FighterSearchBar from '../app/fighter-list/components/FighterSearchBar';
 
 export const EditScreenInfo = ({ path }: { path: string }) => {
   const title = 'Open up the code for this screen:';

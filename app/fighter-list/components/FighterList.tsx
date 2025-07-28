@@ -1,5 +1,5 @@
 import { ScrollView, Text, View } from 'react-native';
-import { Fighter } from '../../models/Fighter';
+import { Fighter } from '../../../models/Fighter';
 import FighterListItem from './FighterListItem';
 
 interface Props {

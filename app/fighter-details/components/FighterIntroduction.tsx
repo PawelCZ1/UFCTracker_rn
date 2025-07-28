@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native';
-import { Fighter } from '../../models/Fighter';
+import { Fighter } from '../../../models/Fighter';
 
 interface Props {
   fighter: Fighter;

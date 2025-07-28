@@ -1,9 +1,9 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { Fighter } from '../../models/Fighter';
+import { Fighter } from '../../../models/Fighter';
 import { Feather } from '@expo/vector-icons';
-import { HorizontalSpacer } from '~/components/HorizontalSpacer';
+import { HorizontalSpacer } from '../../../components/HorizontalSpacer';
 import { useRouter } from 'expo-router';
-import { useFighterContext } from '../../contexts/FighterContext';
+import { useFighterContext } from '../../../contexts/FighterContext';
 
 interface Props {
   fighter: Fighter;
