@@ -1,4 +1,4 @@
-import { Fighter } from '~/models/Fighter';
+import { Fighter } from '../models/Fighter';
 
 const OCTAGON_API_BASE_URL = 'https://api.octagon-api.com';
 

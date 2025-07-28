@@ -4,8 +4,8 @@ import FighterSearchBar from './components/FighterSearchBar';
 import { VerticalSpacer } from '~/components/VerticalSpacer';
 import FighterList from './components/FighterList';
 import { useEffect, useState } from 'react';
-import { Fighter } from '~/models/Fighter';
-import { fetchFighters } from '~/services/api';
+import Fighter from '../models/Fighter';
+import { fetchFighters } from '../services/api';
 
 export const FighterListScreen = () => {
 

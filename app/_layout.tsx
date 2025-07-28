@@ -1,15 +1,14 @@
 import { Stack } from 'expo-router';
+import { FighterProvider } from './contexts/FighterContext';
 
 const RootLayout = () => {
   return (
-    <Stack>
-      <Stack.Screen name="index" options={{
-        headerShown: false
-      }}/>
-      <Stack.Screen name="fighter-details/[id]" options={{
-        headerShown: false
-      }}/>
-    </Stack>
+    <FighterProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="fighter-details/[id]" />
+      </Stack>
+    </FighterProvider>
   );
 };
 
