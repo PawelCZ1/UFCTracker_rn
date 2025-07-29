@@ -2,25 +2,16 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { Fighter } from '../../../models/Fighter';
 import { Feather } from '@expo/vector-icons';
 import { HorizontalSpacer } from '../../../components/HorizontalSpacer';
-import { useRouter } from 'expo-router';
-import { useFighterContext } from '../../../contexts/FighterContext';
 
 interface Props {
   fighter: Fighter;
+  onPress: (fighter: Fighter) => void;
+  disabled?: boolean;
 }
 
-const FighterListItem = ({fighter}: Props) => {
-
-  const router = useRouter();
-  const { setSelectedFighter } = useFighterContext();
-
-  const handlePress = () => {
-    setSelectedFighter(fighter);
-    router.push(`/fighter-details/${fighter.id}`);
-  };
-
+const FighterListItem = ({ fighter, onPress, disabled }: Props) => {
   return (
-    <TouchableOpacity onPress={handlePress}>
+    <TouchableOpacity onPress={() => onPress(fighter)} disabled={disabled}>
       <View className="bg-red-700 rounded-lg  flex flex-row items-center p-4">
         <View className="flex-shrink-0">
           <Image
