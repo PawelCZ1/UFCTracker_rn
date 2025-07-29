@@ -3,18 +3,18 @@ import { Feather } from '@expo/vector-icons';
 
 interface Props {
   placeholder: string;
-  onPress: () => void;
+  value: string;
+  onChangeText: (text: string) => void;
 }
 
-const FighterSearchBar = ({placeholder, onPress}: Props) => {
+const FighterSearchBar = ({placeholder, value, onChangeText}: Props) => {
   return (
     <View className={styles.container}>
       <Feather name="search" size={24} color="#a8b5db" />
       <TextInput
-        onPress={onPress}
         placeholder={placeholder}
-        value=""
-        onChangeText={() => {}}
+        value={value}
+        onChangeText={onChangeText}
         placeholderTextColor="#a8b5db"
         className={styles.input}
       />

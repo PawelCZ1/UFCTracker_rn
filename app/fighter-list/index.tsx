@@ -12,6 +12,13 @@ const FighterListScreen = () => {
   const [fighters, setFighters] = useState<Fighter[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const filteredFighters = fighters.filter(fighter => {
+    const query = searchQuery.trim().toLowerCase();
+    const fullName = `${fighter.firstName} ${fighter.lastName}`.toLowerCase();
+    return fullName.includes(query) || fighter.nickname.toLowerCase().includes(query);
+  });
 
   useEffect(() => {
     const loadFighters = async () => {
@@ -51,9 +58,9 @@ const FighterListScreen = () => {
   return (
     <SafeAreaView className="flex-1 w-full h-full bg-black">
       <View className="flex-1 items-center justify-start  pt-6">
-        <FighterSearchBar placeholder="Search" onPress={() => {}}/>
+        <FighterSearchBar placeholder="Search" value={searchQuery} onChangeText={setSearchQuery}/>
         <VerticalSpacer size={16}/>
-        <FighterList fighters={fighters} />
+        <FighterList fighters={filteredFighters} />
       </View>
     </SafeAreaView>
   );
