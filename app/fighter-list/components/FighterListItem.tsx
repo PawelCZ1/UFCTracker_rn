@@ -1,7 +1,8 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { Fighter } from '../../../models/Fighter';
 import { Feather } from '@expo/vector-icons';
 import { HorizontalSpacer } from '../../../components/HorizontalSpacer';
+import { CacheImage } from 'components/CacheImage';
 
 interface Props {
   fighter: Fighter;
@@ -14,10 +15,13 @@ const FighterListItem = ({ fighter, onPress, disabled }: Props) => {
     <TouchableOpacity onPress={() => onPress(fighter)} disabled={disabled}>
       <View className="bg-red-700 rounded-lg  flex flex-row items-center p-4">
         <View className="flex-shrink-0">
-          <Image
+          <CacheImage
             source={{ uri: fighter.imageUrl }}
             resizeMode="contain"
-            className="w-20 h-20"
+            className="w-20 h-20" // lub odpowiednie style dla listy
+            showLoader={true}
+            loaderColor="#fff"
+            loaderSize="small" // mniejszy loader dla listy
           />
         </View>
         <HorizontalSpacer size={16} />

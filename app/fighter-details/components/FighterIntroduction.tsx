@@ -1,14 +1,12 @@
-import { View, Text, Image, ActivityIndicator } from 'react-native';
+import { View, Text } from 'react-native';
 import { Fighter } from '../../../models/Fighter';
-import { useState } from 'react';
+import { CacheImage } from 'components/CacheImage';
 
 interface Props {
   fighter: Fighter;
 }
 
 const FighterIntroduction = ({fighter}: Props) => {
-  const [imageLoading, setImageLoading] = useState(true);
-
   return (
     <View className={styles.container}>
       <View className="flex flex-col gap-4">
@@ -19,18 +17,12 @@ const FighterIntroduction = ({fighter}: Props) => {
             <Text className={styles.category}>{fighter.category}</Text>
           </View>
           <View className="flex-1">
-            {imageLoading && (
-              <View className="absolute inset-0 items-center justify-center">
-                <ActivityIndicator size="large" color="#fff" />
-              </View>
-            )}
-            <Image
-              key={fighter.imageUrl}
+            <CacheImage
               source={{ uri: fighter.imageUrl }}
               resizeMode="contain"
               className="h-60 w-full"
-              onLoadStart={() => setImageLoading(true)}
-              onLoadEnd={() => setImageLoading(false)}
+              showLoader={false}
+              loaderColor="#fff"
             />
           </View>
         </View>
