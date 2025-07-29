@@ -1,24 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'expo-router';
-import { View } from 'react-native';
+import SplashScreen from '../components/SplashScreen';
 
 export default function Index() {
   const router = useRouter();
-  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    const timeout = setTimeout(() => {
+      router.replace('/fighter-list');
+    }, 2000);
 
-  useEffect(() => {
-    if (isMounted) {
-      const timeout = setTimeout(() => {
-        router.replace('/fighter-list');
-      }, 100);
+    return () => clearTimeout(timeout);
+  }, [router]);
 
-      return () => clearTimeout(timeout);
-    }
-  }, [isMounted, router]);
-
-  return <View className="flex-1 bg-black" />;
+  return <SplashScreen />;
 }
