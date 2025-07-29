@@ -34,7 +34,7 @@ const FighterIntroduction = ({fighter}: Props) => {
             />
           </View>
         </View>
-        <View className="flex flex-row items-start justify-start gap-4">
+        <View className="flex flex-row items-center justify-center gap-4">
           <Text className={styles.stats}>WINS: {fighter.wins}</Text>
           <Text className={styles.stats}>LOSSES: {fighter.losses}</Text>
           <Text className={styles.stats}>DRAWS: {fighter.draws}</Text>
@@ -48,7 +48,7 @@ const styles = {
   container: "p-6",
   name: "text-4xl font-bold italic text-white",
   category: "ml-2 text-white",
-  stats: "text-gray-600 text-xl"
+  stats: "text-gray-600 text-2xl font-bold"
 }
 
 export default FighterIntroduction;
