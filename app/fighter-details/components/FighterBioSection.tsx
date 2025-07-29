@@ -27,7 +27,7 @@ const FighterBioSection = ({fighter}: Props) => {
       <VerticalSpacer size={4} />
       <HorizontalDivider thickness={2} color="#4B5563"/>
       <VerticalSpacer size={4} />
-      <FighterDetailRow rowKey="PLACE OF BIRTH" rowValue={fighter.placeOfBirth}/>
+      <FighterDetailRow rowKey="PLACE OF BIRTH" rowValue={fighter.placeOfBirth || "Unknown"}/>
       <VerticalSpacer size={4} />
       <HorizontalDivider thickness={2} color="#4B5563"/>
       <VerticalSpacer size={4} />
