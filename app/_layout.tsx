@@ -6,8 +6,18 @@ const RootLayout = () => {
   return (
     <FighterProvider>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="fighter-list/index" />
+        <Stack.Screen
+          name="index"
+          options={{
+          animation: 'none',
+          gestureEnabled: false
+        }}
+        />
+        <Stack.Screen
+          name="fighter-list/index"
+          options={{
+            animation: 'fade'
+          }}/>
         <Stack.Screen name="fighter-details/[id]" />
       </Stack>
     </FighterProvider>
